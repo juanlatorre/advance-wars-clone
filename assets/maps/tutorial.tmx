@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="15" height="10" tilewidth="42" tileheight="42" infinite="0" nextobjectid="10">
+ <tileset firstgid="1" name="Tileset" tilewidth="42" tileheight="42" tilecount="3" columns="3">
+  <image source="../images/tileset-tutorial.png" width="126" height="42"/>
+ </tileset>
+ <layer name="Pasto" width="15" height="10">
+  <properties>
+   <property name="def" type="int" value="1"/>
+  </properties>
+  <data encoding="csv">
+0,0,0,0,0,3,3,3,3,3,0,0,0,0,0,
+0,0,0,0,3,3,3,3,3,3,3,0,0,0,0,
+0,3,3,3,3,3,3,3,3,3,3,3,3,3,0,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+0,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+0,3,3,3,3,3,3,3,3,3,3,3,3,3,0,
+0,0,3,3,3,3,3,3,3,3,3,3,3,0,0,
+0,0,0,3,3,3,3,0,3,3,3,3,0,0,0,
+0,0,0,0,3,3,0,0,0,3,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Arboles" width="15" height="10">
+  <properties>
+   <property name="def" type="int" value="3"/>
+  </properties>
+  <data encoding="csv">
+0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,
+0,0,1,1,0,0,0,0,0,0,0,0,0,1,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Montanas" width="15" height="10">
+  <properties>
+   <property name="def" type="int" value="10"/>
+  </properties>
+  <data encoding="csv">
+2,2,2,0,0,0,0,0,0,0,2,2,2,2,2,
+2,2,0,0,0,0,0,0,0,0,0,2,2,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,
+2,0,0,0,0,0,0,0,0,0,0,0,0,2,2,
+2,2,2,0,0,0,0,2,0,0,0,0,2,2,2,
+2,2,2,2,0,0,2,2,2,0,2,2,2,2,2
+</data>
+ </layer>
+ <objectgroup name="Controlables">
+  <object id="3" name="Infanteria_Roja" x="210" y="126" width="42" height="42">
+   <properties>
+    <property name="ammo" type="int" value="0"/>
+    <property name="fuel" type="int" value="99"/>
+    <property name="hp" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="5" name="Infanteria_Roja" x="126" y="210" width="42" height="42">
+   <properties>
+    <property name="ammo" type="int" value="0"/>
+    <property name="fuel" type="int" value="99"/>
+    <property name="hp" type="int" value="10"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Enemigos">
+  <object id="6" name="Infanteria_Azul" x="588" y="252" width="42" height="42">
+   <properties>
+    <property name="ammo" type="int" value="0"/>
+    <property name="fuel" type="int" value="99"/>
+    <property name="hp" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="9" name="Infanteria_Azul" x="588" y="378" width="42" height="42">
+   <properties>
+    <property name="ammo" type="int" value="0"/>
+    <property name="fuel" type="int" value="99"/>
+    <property name="hp" type="int" value="10"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
