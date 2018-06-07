@@ -2,10 +2,10 @@
 
 Map = Object:extend()
 
-sti = require("assets/lib/sti")
+cartographer = require("assets.lib.cartographer")
 
-function Map.new(self, rute)
-    self.map = sti(rute)
+function Map.new(self, path)
+    self.map = cartographer.load(path)
 end
 
 function Map.update(self, dt)

@@ -4,4 +4,5 @@ function love.conf(t)
     t.window.title = "Advance Wars Online"
     t.window.resizable = false
     t.window.fullscreen = false
+    t.window.vsync = false
 end

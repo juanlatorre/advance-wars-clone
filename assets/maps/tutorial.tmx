@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="15" height="10" tilewidth="42" tileheight="42" infinite="0" nextobjectid="10">
- <tileset firstgid="1" name="Tileset" tilewidth="42" tileheight="42" tilecount="3" columns="3">
-  <image source="../images/tileset-tutorial.png" width="126" height="42"/>
+ <tileset firstgid="1" name="Tileset" tilewidth="42" tileheight="42" tilecount="4" columns="4">
+  <image source="../images/tileset0.png" width="168" height="42"/>
  </tileset>
  <layer name="Pasto" width="15" height="10">
   <properties>
    <property name="def" type="int" value="1"/>
   </properties>
   <data encoding="csv">
-0,0,0,0,0,3,3,3,3,3,0,0,0,0,0,
-0,0,0,0,3,3,3,3,3,3,3,0,0,0,0,
-0,3,3,3,3,3,3,3,3,3,3,3,3,3,0,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-0,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-0,3,3,3,3,3,3,3,3,3,3,3,3,3,0,
-0,0,3,3,3,3,3,3,3,3,3,3,3,0,0,
-0,0,0,3,3,3,3,0,3,3,3,3,0,0,0,
-0,0,0,0,3,3,0,0,0,3,0,0,0,0,0
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+</data>
+ </layer>
+ <layer name="Sombras" width="15" height="10">
+  <data encoding="csv">
+0,4,4,4,4,4,0,0,0,0,0,4,4,4,4,
+0,4,4,4,4,0,0,0,0,0,0,0,4,4,4,
+0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,4,4,0,0,0,0,0,0,0,0,0,0,0,4,
+0,4,4,4,0,0,0,0,4,0,0,0,0,4,4,
+0,4,4,4,4,0,0,4,4,4,0,4,4,4,4
 </data>
  </layer>
  <layer name="Arboles" width="15" height="10">

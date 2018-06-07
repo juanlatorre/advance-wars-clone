@@ -14,4 +14,5 @@ end
 
 function love.draw()
     map:draw()
+    love.graphics.print(love.timer.getFPS())
 end
