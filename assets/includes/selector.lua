@@ -15,6 +15,10 @@ function Selector:draw()
     love.graphics.draw(assets.images.selector0, self.x, self.y)
 end
 
+function Selector:select(x,y)
+    
+end
+
 function Selector:update()
     function love.keypressed(key)
         if key == "right" and self.x < self.width - 42 then
@@ -25,6 +29,10 @@ function Selector:update()
             self.y = self.y - 42
         elseif key == "down" and self.y < self.height - 42 then
             self.y = self.y + 42
+        end
+
+        if key == "z" then
+            self:select(self.x, self.y)
         end
     end
 end
