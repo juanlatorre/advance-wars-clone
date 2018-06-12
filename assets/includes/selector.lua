@@ -1,58 +1,30 @@
 --! file: selector.lua
 
-Selector = Object:extend()
+Selector = class("Selector")
 
--- testing
--- lovebird = require("assets.lib.lovebird")
-
-mapWidth = nil
-mapHeight = nil
-
-function Selector.new(self, w, h)
+function Selector:initialize(width, height)
+    self.width = width or nil
+    self.height = height or nil
     self.sprite = love.graphics.newImage("assets/images/selector0.png")
-    x = 252
-    y = 210
-    mapWidth = w
-    mapHeight = h
+    -- hardcoded, arreglar más adelante
+    self.x = 252 or 0
+    self.y = 210 or 0
 end
 
-function Selector.update(self, dt)
-    -- testing
-    -- lovebird.update()
+function Selector:draw()
+    love.graphics.draw(assets.images.selector0, self.x, self.y)
 end
 
-function Selector.draw(self)
-    love.graphics.draw(assets.images.selector0, x, y)
-end
-
-function canMove(dir)
-    if dir == "right" then
-        if x < mapWidth - 42 then
-            return true
+function Selector:update()
+    function love.keypressed(key)
+        if key == "right" and self.x < self.width - 42 then
+            self.x = self.x + 42
+        elseif key == "left" and self.x > 0 then
+            self.x = self.x - 42
+        elseif key == "up" and self.y > 0 then
+            self.y = self.y - 42
+        elseif key == "down" and self.y < self.height - 42 then
+            self.y = self.y + 42
         end
-    elseif dir == "left" then
-        if x > 0 then
-            return true
-        end
-    elseif dir == "up" then
-        if y > 0 then
-            return true
-        end
-    elseif dir == "down" then
-        if y < mapHeight - 42 then
-            return true
-        end
-    end
-end
-
-function love.keypressed(key)
-    if key == "right" and canMove("right") == true then
-        x = x + 42
-    elseif key == "left" and canMove("left") == true then
-        x = x - 42
-    elseif key == "up" and canMove("up") == true then
-        y = y - 42
-    elseif key == "down" and canMove("down") == true then
-        y = y + 42
     end
 end

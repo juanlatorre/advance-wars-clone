@@ -1,19 +1,15 @@
 --! file: map.lua
 
-Map = Object:extend()
+Map = class("Map")
 
-cartographer = require("assets.lib.cartographer")
+sti = require("assets/lib/sti")
 
-function Map.new(self, path)
-    self.map = cartographer.load(path)
-    self.width = self.map:getPixelWidth()
-    self.height = self.map:getPixelHeight()
+function Map:initialize(path)
+    self.map = sti(path)
+    self.width = love.graphics.getWidth()
+    self.height = love.graphics.getHeight()
 end
 
-function Map.update(self, dt)
-    self.map:update(dt)
-end
-
-function Map.draw(self)
-    self.map:draw()
+function Map:draw()
+    self.map:draw(0,0)
 end

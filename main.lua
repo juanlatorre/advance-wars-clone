@@ -1,26 +1,25 @@
 function love.load()
+    -- Importar librerías
     assets = require("assets.lib.cargo").init("assets")
-    Object = require("assets.lib.classic")
+    lovebird = require("assets.lib.lovebird")
+    class = require("assets.lib.middleclass")
+
+    -- Importar clases
     require("assets.includes.map")
     require("assets.includes.selector")
-    require("assets.includes.unit")
-    lovebird = require("assets.lib.lovebird")
 
-    map = Map("assets/maps/tutorial.lua")
-    selector = Selector(map.width, map.height)
-
-    infanteria_1 = Unit("Infanteria", 6, 7, 10, 0, 99, true, false, true, moveRange, attackRange)
+    -- Generar clases
+    map = Map:new("assets/maps/tutorial.lua")
+    selector = Selector:new(map.width, map.height)
 end
 
 function love.update(dt)
-    -- lovebird.update()
-    map:update(dt)
-    selector.update(dt)
+    lovebird.update()
+    selector:update(dt)
 end
 
 function love.draw()
-    map:draw()
     love.graphics.print(love.timer.getFPS())
+    map:draw()
     selector:draw()
-    infanteria_1:draw()
 end
