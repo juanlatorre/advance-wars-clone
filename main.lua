@@ -30,8 +30,8 @@ function love.load()
     objetos.aliados.inf_rojo_1 = inf_rojo_1
     objetos.aliados.inf_rojo_2 = inf_rojo_2
 
-    inf_azul_1 = Unit:new("infanteria", 42*14, 42*6, 10, 0, 99, false, true, true)
-    inf_azul_2 = Unit:new("infanteria", 42*14, 42*8, 10, 0, 99, false, true, true)
+    inf_azul_1 = Unit:new("infanteria", 42*13, 42*5, 10, 0, 99, false, true, true)
+    inf_azul_2 = Unit:new("infanteria", 42*13, 42*8, 10, 0, 99, false, true, true)
     objetos.enemigos.inf_azul_1 = inf_azul_1
     objetos.enemigos.inf_azul_2 = inf_azul_2
 end

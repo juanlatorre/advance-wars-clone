@@ -16,19 +16,23 @@ function Selector:draw()
 end
 
 function Selector:select(x,y)
-    
+    lovebird.print(x,y)
 end
 
 function Selector:update()
     function love.keypressed(key)
         if key == "right" and self.x < self.width - 42 then
             self.x = self.x + 42
+            self:select(self.x, self.y)
         elseif key == "left" and self.x > 0 then
             self.x = self.x - 42
+            self:select(self.x, self.y)
         elseif key == "up" and self.y > 0 then
             self.y = self.y - 42
+            self:select(self.x, self.y)
         elseif key == "down" and self.y < self.height - 42 then
             self.y = self.y + 42
+            self:select(self.x, self.y)
         end
 
         if key == "z" then
