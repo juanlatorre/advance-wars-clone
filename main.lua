@@ -21,6 +21,7 @@ function love.load()
     map = Map:new("assets/maps/tutorial.lua")
     selector = Selector:new(map.width, map.height)
     ui_day = UI:new(0, 0, "dia")
+    ui_terrain = UI:new(13*42, 6*42, "terreno")
     
     local objetos = {
         aliados = {},
@@ -59,6 +60,7 @@ function love.draw()
 
     -- z-index: 2
     ui_day:draw()
+    ui_terrain:draw()
 
     -- z-index: 3
     selector:draw()

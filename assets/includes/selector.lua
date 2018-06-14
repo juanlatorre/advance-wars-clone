@@ -18,9 +18,17 @@ end
 function Selector:analyzeUI()
     if self.y < 5*42 then
         if self.x < 8*42 then
-            ui_day:moveTo(10*42)
+            ui_day:moveTo(10*42, 0*42)
         else
-            ui_day:moveTo(0*42)
+            ui_day:moveTo(0*42, 0*42)
+        end
+    end
+
+    if self.y > 3*42 then
+        if self.x < 8*42 then
+            ui_terrain:moveTo(13*42, 6*42)
+        else
+            ui_terrain:moveTo(0.5*42, 6*42)
         end
     end
 end

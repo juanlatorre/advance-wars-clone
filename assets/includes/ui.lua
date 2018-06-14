@@ -19,4 +19,8 @@ function UI:draw()
     if self.type == "dia" then
         love.graphics.draw(assets.images.ui_day, self.x, self.y)
     end
+
+    if self.type == "terreno" then
+        love.graphics.draw(assets.images.ui_terrain, self.x, self.y)
+    end
 end
