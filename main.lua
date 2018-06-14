@@ -15,10 +15,12 @@ function love.load()
     require("assets.includes.map")
     require("assets.includes.selector")
     require("assets.includes.unit")
+    require("assets.includes.ui")
 
     -- Generar clases
     map = Map:new("assets/maps/tutorial.lua")
     selector = Selector:new(map.width, map.height)
+    ui_day = UI:new(0, 0, "dia")
     
     local objetos = {
         aliados = {},
@@ -37,6 +39,7 @@ function love.load()
 end
 
 function love.update(dt)
+    require("assets.lib.lurker").update()
     lovebird.update()
     selector:update(dt)
 end
@@ -55,6 +58,9 @@ function love.draw()
     inf_azul_2:draw()
 
     -- z-index: 2
+    ui_day:draw()
+
+    -- z-index: 3
     selector:draw()
     
     push:finish()
