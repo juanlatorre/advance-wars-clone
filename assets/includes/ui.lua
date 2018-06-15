@@ -8,6 +8,7 @@ function UI:initialize(x, y, type)
     self.h = nil
     self.w = nil
     self.type = type or nil 
+    self.sprite = love.graphics.newImage("assets/images/ui_terrain.png")
 end
 
 function UI:moveTo(x,y)
@@ -21,6 +22,6 @@ function UI:draw()
     end
 
     if self.type == "terreno" then
-        love.graphics.draw(assets.images.ui_terrain, self.x, self.y)
+        love.graphics.draw(self.sprite, self.x, self.y)
     end
 end

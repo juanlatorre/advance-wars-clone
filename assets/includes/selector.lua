@@ -33,6 +33,42 @@ function Selector:analyzeUI()
     end
 end
 
+function Selector:checkMapTile()
+    -- Verificar si hay una unidad en el selector
+    for i,x in pairs(objetos) do
+        for k,objeto in pairs(x) do
+            if self.x == objeto.x and self.y == objeto.y then
+                lovebird.print("Encontré " .. k .. " en " .. self.x,self.y)
+            end
+        end
+    end
+    -- Verificar el terreno en el selector
+    local layer_mt = map.map:getTileProperties("Mt", (self.x+42)/42, (self.y+42)/42)
+    local layer_wood = map.map:getTileProperties("Wood", (self.x+42)/42, (self.y+42)/42)
+    local layer_plain = map.map:getTileProperties("Plain", (self.x+42)/42, (self.y+42)/42)
+    
+    -- Comprobamos si hay MT
+    if next(layer_mt) then
+        lovebird.print("si hay montaña") -- debug
+        ui_terrain.sprite = love.graphics.newImage("assets/images/ui_terrain_mt.png")
+    else
+        -- Comprobamos si hay Bosque
+        if next(layer_wood) then
+            lovebird.print("si hay bosque") -- debug
+            ui_terrain.sprite = love.graphics.newImage("assets/images/ui_terrain_wood.png")
+        else
+            -- Comprobamos si hay Planicie
+            if next(layer_plain) then
+                lovebird.print("si hay planicie") -- debug
+                ui_terrain.sprite = love.graphics.newImage("assets/images/ui_terrain_plain.png")
+            else
+                lovebird.print("no hay nada") -- debug
+                ui_terrain.sprite = love.graphics.newImage("assets/images/ui_terrain.png")
+            end
+        end
+    end
+end
+
 function Selector:select(x,y)
     lovebird.print("z pressed at " .. self.x, self.y)
 end
@@ -42,15 +78,19 @@ function Selector:update()
         if key == "right" and self.x < self.width - 42 then
             self.x = self.x + 42
             self:analyzeUI()
+            self:checkMapTile()
         elseif key == "left" and self.x > 0 then
             self.x = self.x - 42
             self:analyzeUI()
+            self:checkMapTile()
         elseif key == "up" and self.y > 0 then
             self.y = self.y - 42
             self:analyzeUI()
+            self:checkMapTile()
         elseif key == "down" and self.y < self.height - 42 then
             self.y = self.y + 42
             self:analyzeUI()
+            self:checkMapTile()
         end
 
         if key == "z" then

@@ -23,7 +23,7 @@ function love.load()
     ui_day = UI:new(0, 0, "dia")
     ui_terrain = UI:new(13*42, 6*42, "terreno")
     
-    local objetos = {
+    objetos = {
         aliados = {},
         enemigos = {}
     }
