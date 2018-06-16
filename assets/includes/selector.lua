@@ -46,9 +46,7 @@ function Selector:checkMapTile()
         for k,objeto in pairs(x) do
             if self.x == objeto.x and self.y == objeto.y then
                 ui_unit.show = true
-                ui_unit.hpOfUnit = objeto.hp
-                ui_unit.ammoOfUnit = objeto.ammo
-                ui_unit.fuelOfUnit = objeto.fuel
+                ui_unit:setUnitData(objeto.type, objeto.hp, objeto.ammo, objeto.fuel)
             end
         end
     end

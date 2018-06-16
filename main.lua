@@ -39,7 +39,11 @@ function love.load()
     objetos.enemigos.inf_azul_1 = inf_azul_1
     objetos.enemigos.inf_azul_2 = inf_azul_2
 
-    font = love.graphics.newFont(14)
+    font = love.graphics.newFont("assets/fonts/aw2.ttf", 32)
+end
+
+function set_font(name, size)
+    font = love.graphics.newFont("assets/fonts/" .. name .. ".ttf", size)
     love.graphics.setFont(font)
 end
 
@@ -69,8 +73,6 @@ function love.draw()
 
     -- z-index: 3
     selector:draw()
-    
-    love.graphics.print("This is some awesome text", 100, 100)
     
     push:finish()
 end
