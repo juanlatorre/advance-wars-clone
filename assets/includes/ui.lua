@@ -28,9 +28,34 @@ function UI:initialize(x, y, type)
     end
 end
 
-function UI:moveTo(x,y)
-    self.x = x
-    self.y = y
+function UI:moveTo(dir)
+    if dir == "right" then
+        if self.type == "dia" then
+            self.x, self.y = 10*42, 0*42
+        end
+
+        if self.type == "terreno" then
+            self.x, self.y = 13*42, 6*42
+        end
+
+        if self.type == "unidad" then
+            self.x, self.y = 11.2*42, 6*42
+        end
+    end
+
+    if dir == "left" then
+        if self.type == "dia" then
+            self.x, self.y = 0*42, 0*42
+        end
+
+        if self.type == "terreno" then
+            self.x, self.y = 0.5*42, 6*42
+        end
+
+        if self.type == "unidad" then
+            self.x, self.y = 2.3*42, 6*42
+        end
+    end
 end
 
 function UI:draw()

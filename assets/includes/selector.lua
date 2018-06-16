@@ -21,20 +21,20 @@ function Selector:analyzeUI()
     -- analizamos la posición del indicador de Día por jugador
     if self.y < 5*42 then
         if self.x < 8*42 then
-            ui_day:moveTo(10*42, 0*42)
+            ui_day:moveTo("right")
         else
-            ui_day:moveTo(0*42, 0*42)
+            ui_day:moveTo("left")
         end
     end
 
     -- analizamos la posición del indicador de terreno y de unidades
     if self.y > 3*42 then
         if self.x < 8*42 then
-            ui_terrain:moveTo(13*42, 6*42)
-            ui_unit:moveTo(11.2*42, 6*42)
+            ui_terrain:moveTo("right")
+            ui_unit:moveTo("right")
         else
-            ui_terrain:moveTo(0.5*42, 6*42)
-            ui_unit:moveTo(2.3*42, 6*42)
+            ui_terrain:moveTo("left")
+            ui_unit:moveTo("left")
         end
     end
 end
