@@ -39,7 +39,7 @@ function UI:moveTo(dir)
         end
 
         if self.type == "unidad" then
-            self.x, self.y = 11.2*42, 6*42
+            self.x, self.y = 11.2*42, 6*42 -- x:470.4, en x:512.4 empieza texto 12.2*42
         end
     end
 

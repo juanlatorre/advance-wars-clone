@@ -38,6 +38,9 @@ function love.load()
     inf_azul_2 = Unit:new("Inftry", 42*13, 42*8, 10, 0, 99, false, true, true)
     objetos.enemigos.inf_azul_1 = inf_azul_1
     objetos.enemigos.inf_azul_2 = inf_azul_2
+
+    font = love.graphics.newFont(14)
+    love.graphics.setFont(font)
 end
 
 function love.update(dt)
@@ -66,6 +69,8 @@ function love.draw()
 
     -- z-index: 3
     selector:draw()
+    
+    love.graphics.print("This is some awesome text", 100, 100)
     
     push:finish()
 end
