@@ -17,7 +17,7 @@ function Unit:initialize(type, x, y, hp, ammo, fuel, isAlly, isEnemy, isActive, 
 end
 
 function Unit:draw()
-    if self.type == "infanteria" then
+    if self.type == "Inftry" then
         if self.isAlly == true then
             if self.isEnemy == true then
                 love.graphics.draw(assets.images.inf_azul_0, self.x, self.y)

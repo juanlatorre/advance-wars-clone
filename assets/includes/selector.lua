@@ -2,6 +2,8 @@
 
 Selector = class("Selector")
 
+local oneTime = nil
+
 function Selector:initialize(width, height)
     self.width = width or nil
     self.height = height or nil
@@ -16,6 +18,7 @@ function Selector:draw()
 end
 
 function Selector:analyzeUI()
+    -- analizamos la posición del indicador de Día por jugador
     if self.y < 5*42 then
         if self.x < 8*42 then
             ui_day:moveTo(10*42, 0*42)
@@ -24,21 +27,28 @@ function Selector:analyzeUI()
         end
     end
 
+    -- analizamos la posición del indicador de terreno y de unidades
     if self.y > 3*42 then
         if self.x < 8*42 then
             ui_terrain:moveTo(13*42, 6*42)
+            ui_unit:moveTo(11.2*42, 6*42)
         else
             ui_terrain:moveTo(0.5*42, 6*42)
+            ui_unit:moveTo(2.3*42, 6*42)
         end
     end
 end
 
 function Selector:checkMapTile()
+    ui_unit.show = false
     -- Verificar si hay una unidad en el selector
     for i,x in pairs(objetos) do
         for k,objeto in pairs(x) do
             if self.x == objeto.x and self.y == objeto.y then
-                lovebird.print("Encontré " .. k .. " en " .. self.x,self.y)
+                ui_unit.show = true
+                ui_unit.hpOfUnit = objeto.hp
+                ui_unit.ammoOfUnit = objeto.ammo
+                ui_unit.fuelOfUnit = objeto.fuel
             end
         end
     end
@@ -74,6 +84,12 @@ function Selector:select(x,y)
 end
 
 function Selector:update()
+    while not once do
+        self:analyzeUI()
+        self:checkMapTile()
+        once = 0
+    end
+
     function love.keypressed(key)
         if key == "right" and self.x < self.width - 42 then
             self.x = self.x + 42

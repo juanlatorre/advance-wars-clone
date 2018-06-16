@@ -22,19 +22,20 @@ function love.load()
     selector = Selector:new(map.width, map.height)
     ui_day = UI:new(0, 0, "dia")
     ui_terrain = UI:new(13*42, 6*42, "terreno")
+    ui_unit = UI:new(11.2*42, 6*42, "unidad")
     
     objetos = {
         aliados = {},
         enemigos = {}
     }
     -- Poblamos Unidades de Muestra y las agregamos a la tabla de objetos
-    inf_rojo_1 = Unit:new("infanteria", 42*5, 42*3, 10, 0, 99, true, false, true)
-    inf_rojo_2 = Unit:new("infanteria", 42*3, 42*5, 10, 0, 99, true, false, true)
+    inf_rojo_1 = Unit:new("Inftry", 42*5, 42*3, 10, 0, 99, true, false, true)
+    inf_rojo_2 = Unit:new("Inftry", 42*3, 42*5, 10, 0, 99, true, false, true)
     objetos.aliados.inf_rojo_1 = inf_rojo_1
     objetos.aliados.inf_rojo_2 = inf_rojo_2
 
-    inf_azul_1 = Unit:new("infanteria", 42*13, 42*5, 10, 0, 99, false, true, true)
-    inf_azul_2 = Unit:new("infanteria", 42*13, 42*8, 10, 0, 99, false, true, true)
+    inf_azul_1 = Unit:new("Inftry", 42*13, 42*5, 10, 0, 99, false, true, true)
+    inf_azul_2 = Unit:new("Inftry", 42*13, 42*8, 10, 0, 99, false, true, true)
     objetos.enemigos.inf_azul_1 = inf_azul_1
     objetos.enemigos.inf_azul_2 = inf_azul_2
 end
@@ -61,6 +62,7 @@ function love.draw()
     -- z-index: 2
     ui_day:draw()
     ui_terrain:draw()
+    ui_unit:draw()
 
     -- z-index: 3
     selector:draw()
