@@ -22,32 +22,24 @@ function UI:initialize(x, y, type)
     if self.type == "unidad" then
         self.sprite = love.graphics.newImage("assets/images/ui_unit.png")
         self.show = false
+        self.unit = {
+            name = {},
+            sprite = {},
+            hp = {},
+            ammo = {},
+            fuel = {}
+        }
     end
 end
 
-function UI:setUnitData(type, hp, ammo, fuel)
+function UI:setUnitData(type, hp, ammo, fuel, sprite)
     set_font("aw2", 32)
-    self.name = {
-        text = love.graphics.newText(font, type),
-        x = 11.55*42,
-        y = 6.15*42
-    }
+    self.unit.name.text = love.graphics.newText(font, type)
+    self.unit.sprite.image = sprite
     set_font("aw2", 22)
-    self.hp = {
-        text = love.graphics.newText(font, hp),
-        x = 12.2*42,
-        y = 7.8*42
-    }
-    self.ammo = {
-        text = love.graphics.newText(font, ammo),
-        x = 12.2*42,
-        y = 8.2*42
-    }
-    self.fuel = {
-        text = love.graphics.newText(font, fuel),
-        x = 12.2*42,
-        y = 8.6*42
-    }
+    self.unit.hp.text = love.graphics.newText(font, hp)
+    self.unit.ammo.text = love.graphics.newText(font, ammo)
+    self.unit.fuel.text = love.graphics.newText(font, fuel)
 end
 
 function UI:moveTo(dir)
@@ -61,7 +53,13 @@ function UI:moveTo(dir)
         end
 
         if self.type == "unidad" then
-            self.x, self.y = 11.2*42, 6*42 -- x:470.4, en x:512.4 empieza texto 12.2*42
+            self.x, self.y = 11.2*42, 6*42
+            -- también movemos la info de cada unidad
+            self.unit.name.x, self.unit.name.y = 11.5*42, 6.15*42
+            self.unit.sprite.x, self.unit.sprite.y = 11.7*42, 6.73*42
+            self.unit.hp.x, self.unit.hp.y = 12.2*42, 7.8*42
+            self.unit.ammo.x, self.unit.ammo.y = 12.2*42, 8.2*42
+            self.unit.fuel.x, self.unit.fuel.y = 12.2*42, 8.6*42
         end
     end
 
@@ -76,6 +74,12 @@ function UI:moveTo(dir)
         
         if self.type == "unidad" then
             self.x, self.y = 2.3*42, 6*42
+            -- también movemos la info de cada unidad
+            self.unit.name.x, self.unit.name.y = 2.6*42, 6.15*42
+            self.unit.sprite.x, self.unit.sprite.y = 2.7*42, 6.73*42
+            self.unit.hp.x, self.unit.hp.y = 3.3*42, 7.8*42
+            self.unit.ammo.x, self.unit.ammo.y = 3.3*42, 8.2*42
+            self.unit.fuel.x, self.unit.fuel.y = 3.3*42, 8.6*42
         end
 
     end
@@ -87,9 +91,10 @@ function UI:draw()
     end
 
     if self.show and self.type == "unidad" then
-        love.graphics.draw(self.name.text, self.name.x, self.name.y)
-        love.graphics.draw(self.hp.text, self.hp.x, self.hp.y)
-        love.graphics.draw(self.ammo.text, self.ammo.x, self.ammo.y)
-        love.graphics.draw(self.fuel.text, self.fuel.x, self.fuel.y)
+        love.graphics.draw(self.unit.name.text, self.unit.name.x, self.unit.name.y)
+        love.graphics.draw(self.unit.sprite.image, self.unit.sprite.x, self.unit.sprite.y)
+        love.graphics.draw(self.unit.hp.text, self.unit.hp.x, self.unit.hp.y)
+        love.graphics.draw(self.unit.ammo.text, self.unit.ammo.x, self.unit.ammo.y)
+        love.graphics.draw(self.unit.fuel.text, self.unit.fuel.x, self.unit.fuel.y)
     end
 end

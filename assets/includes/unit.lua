@@ -14,18 +14,20 @@ function Unit:initialize(type, x, y, hp, ammo, fuel, isAlly, isEnemy, isActive, 
     self.isActive = isActive or nil
     self.moveRange = moveRange or nil
     self.attackRange = attackRange or nil
-end
-
-function Unit:draw()
+    
     if self.type == "Inftry" then
         if self.isAlly == true then
             if self.isEnemy == true then
-                love.graphics.draw(assets.images.inf_azul_0, self.x, self.y)
+                self.sprite = love.graphics.newImage("assets/images/inf_azul_0.png")
             else
-                love.graphics.draw(assets.images.inf_rojo_0, self.x, self.y)
+                self.sprite = love.graphics.newImage("assets/images/inf_rojo_0.png")
             end
         else
-            love.graphics.draw(assets.images.inf_azul_0, self.x, self.y)
+            self.sprite = love.graphics.newImage("assets/images/inf_azul_0.png")
         end
     end
+end
+
+function Unit:draw()
+    love.graphics.draw(self.sprite, self.x, self.y)
 end

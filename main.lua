@@ -29,13 +29,13 @@ function love.load()
         enemigos = {}
     }
     -- Poblamos Unidades de Muestra y las agregamos a la tabla de objetos
-    inf_rojo_1 = Unit:new("Inftry", 42*5, 42*3, 10, 0, 99, true, false, true)
-    inf_rojo_2 = Unit:new("Inftry", 42*3, 42*5, 10, 0, 99, true, false, true)
+    inf_rojo_1 = Unit:new("Inftry", 42*5, 42*3, 10, 0, 99, true, false, true, "assets/images/inf_rojo_0.png")
+    inf_rojo_2 = Unit:new("Inftry", 42*3, 42*5, 10, 0, 99, true, false, true, "")
     objetos.aliados.inf_rojo_1 = inf_rojo_1
     objetos.aliados.inf_rojo_2 = inf_rojo_2
 
-    inf_azul_1 = Unit:new("Inftry", 42*13, 42*5, 10, 0, 99, false, true, true)
-    inf_azul_2 = Unit:new("Inftry", 42*13, 42*8, 10, 0, 99, false, true, true)
+    inf_azul_1 = Unit:new("Inftry", 42*13, 42*5, 10, 0, 99, false, true, true, "")
+    inf_azul_2 = Unit:new("Inftry", 42*13, 42*8, 10, 0, 99, false, true, true, "")
     objetos.enemigos.inf_azul_1 = inf_azul_1
     objetos.enemigos.inf_azul_2 = inf_azul_2
 
