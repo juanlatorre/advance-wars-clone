@@ -2,32 +2,32 @@
 
 Unit = class("Unit")
 
-function Unit:initialize(type, x, y, hp, ammo, fuel, isAlly, isEnemy, isActive, moveRange, attackRange)
-    self.type = type or nil
-    self.x = x or 0
-    self.y = y or 0
-    self.hp = hp or 10
-    self.ammo = ammo or 0
-    self.fuel = fuel or 99
-    self.isAlly = isAlly or nil
-    self.isEnemy = isEnemy or nil
-    self.isActive = isActive or nil
-    self.moveRange = moveRange or nil
-    self.attackRange = attackRange or nil
-    
-    if self.type == "Inftry" then
-        if self.isAlly == true then
-            if self.isEnemy == true then
-                self.sprite = love.graphics.newImage("assets/images/inf_azul_0.png")
-            else
-                self.sprite = love.graphics.newImage("assets/images/inf_rojo_0.png")
-            end
-        else
+function Unit:initialize(type, x, y, hp, ammo, fuel, is_ally, is_enemy, is_active, move_range, attack_range)
+   self.type = type or nil
+   self.x = x or 0
+   self.y = y or 0
+   self.hp = hp or 10
+   self.ammo = ammo or 0
+   self.fuel = fuel or 99
+   self.is_ally = is_ally or nil
+   self.is_enemy = is_enemy or nil
+   self.is_active = is_active or nil
+   self.move_range = move_range or nil
+   self.attack_range = attack_range or nil
+   
+   if self.type == "Inftry" then
+      if self.is_ally == true then
+         if self.is_enemy == true then
             self.sprite = love.graphics.newImage("assets/images/inf_azul_0.png")
-        end
-    end
+         else
+            self.sprite = love.graphics.newImage("assets/images/inf_rojo_0.png")
+         end
+      else
+         self.sprite = love.graphics.newImage("assets/images/inf_azul_0.png")
+      end
+   end
 end
 
 function Unit:draw()
-    love.graphics.draw(self.sprite, self.x, self.y)
+   love.graphics.draw(self.sprite, self.x, self.y)
 end
